@@ -31,8 +31,8 @@ jobs:
       run: chmod +x gradlew
       working-directory: TacoClient/
 
-    - name: Build TacoClient Debug APK
-      run: ./gradlew assembleDebug
+    - name: Build TacoClient Debug APK (verbose)
+      run: ./gradlew assembleDebug -s
       working-directory: TacoClient/
 
     - name: Find TacoClient APK
