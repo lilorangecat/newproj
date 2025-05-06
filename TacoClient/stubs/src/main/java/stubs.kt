@@ -17,13 +17,38 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import java.io.InputStream
 import java.io.OutputStream
+@file:Suppress("unused", "UNUSED_PARAMETER")
+
+package com.mojang.minecraftpe
+
+import android.annotation.SuppressLint
+import android.app.ActivityManager
+import android.app.NativeActivity
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.os.Bundle
+import android.os.Handler
+import android.os.Message
+import android.view.KeyEvent
+import android.view.MotionEvent
+import android.view.View
+import android.view.inputmethod.InputMethodManager
+import java.io.InputStream
+import java.io.OutputStream
 @Suppress("KotlinJniMissingFunction")
 @SuppressLint("MissingSuperCall")
 
 open class MainActivity : NativeActivity(), View.OnKeyListener, FilePickerManagerHandler {
     external fun nativeShutdown()
 
-    private fun copyFile(var1: InputStream, var2: OutputStream) {
+    // Declare native methods that are implemented as stubs in mc-init.cpp
+    external fun copyFile(var1: InputStream, var2: OutputStream)
+    external fun onCreate(bundle: Bundle?)
+    external fun onNewIntent(var1: Intent)
+    external fun startPickerActivity(intent: Intent?, i: Int)
+
+    private fun createAlertDialog(ok: Boolean, cancel: Boolean, cancellable: Boolean) {
         throw RuntimeException("stub!")
     }
 
