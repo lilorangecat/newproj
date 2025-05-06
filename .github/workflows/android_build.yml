@@ -3,7 +3,7 @@ name: Android Build
 on:
   push:
     branches:
-      - main # Or your default branch like master
+      - master # Or your default branch like master
   release:
     types:
       - created
