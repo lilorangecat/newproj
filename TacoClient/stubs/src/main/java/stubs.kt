@@ -23,13 +23,7 @@ import java.io.OutputStream
 open class MainActivity : NativeActivity(), View.OnKeyListener, FilePickerManagerHandler {
     external fun nativeShutdown()
 
-    // Declare native methods that are implemented as stubs in mc-init.cpp
-    external fun copyFile(var1: InputStream, var2: OutputStream)
-    external fun onCreate(bundle: Bundle?)
-    external fun onNewIntent(var1: Intent)
-    external fun startPickerActivity(intent: Intent?, i: Int)
-
-    private fun createAlertDialog(ok: Boolean, cancel: Boolean, cancellable: Boolean) {
+    private fun copyFile(var1: InputStream, var2: OutputStream) {
         throw RuntimeException("stub!")
     }
 
@@ -188,7 +182,7 @@ open class MainActivity : NativeActivity(), View.OnKeyListener, FilePickerManage
 
     fun getKeyFromKeyCode(var1: Int, var2: Int, var3: Int): Int {
         throw RuntimeException("stub!")
-    }
+        }
 
     val keyboardHeight: Float
         get() = throw RuntimeException("stub!")
