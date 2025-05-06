@@ -20,7 +20,7 @@ jobs:
       uses: actions/setup-java@v4
       with:
         distribution: 'temurin'
-        java-version: '11' # Use Java 11, common for Android projects
+        java-version: '17' # Use Java 17 as required by AGP
 
     - name: Set up Gradle
       uses: gradle/actions/setup-gradle@v3
