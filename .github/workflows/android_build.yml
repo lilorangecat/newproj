@@ -29,9 +29,11 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+      working-directory: TacoClient/
 
     - name: Build TacoClient Debug APK
-      run: ./gradlew :TacoClient:assembleDebug
+      run: ./gradlew assembleDebug
+      working-directory: TacoClient/
 
     - name: Find TacoClient APK
       id: find_apks
