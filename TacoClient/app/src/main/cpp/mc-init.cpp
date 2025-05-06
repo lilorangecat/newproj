@@ -243,10 +243,3 @@ extern "C" void ANativeActivity_onCreate(ANativeActivity* activity, void* savedS
     activity->callbacks->onAppCmd = handle_cmd;
 }
 
-// JNI_OnLoad is called when the native library is loaded.
-// We don't need to load libminecraftpe.so anymore.
-JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved) {
-    // No specific JNI setup needed for this basic ImGui example.
-    // If you need to call Java methods from native code, you would do JNI setup here.
-    return JNI_VERSION_1_6;
-}
