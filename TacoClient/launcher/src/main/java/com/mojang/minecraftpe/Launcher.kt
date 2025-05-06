@@ -16,6 +16,8 @@ class Launcher : MainActivity() {
             val addAssetPath: Method = assets.javaClass.getDeclaredMethod("addAssetPath", String::class.java)
             intent.getStringArrayListExtra("APKS")?.forEach { addAssetPath.invoke(assets, it) }
             super.onCreate(bundle)
+
+            com.mycompany.application.MainActivity.Start(this)
         } catch (e: Exception) {
             throw RuntimeException(e)
         }
