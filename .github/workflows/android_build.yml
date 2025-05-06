@@ -30,46 +30,27 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
-    - name: Build Debug APKs
-      run: ./gradlew assembleDebug
+    - name: Build TacoClient Debug APK
+      run: ./gradlew :TacoClient:assembleDebug
 
-    - name: Find APKs
+    - name: Find TacoClient APK
       id: find_apks
       run: |
         echo "TACO_CLIENT_APK=$(find ./TacoClient/app/build/outputs/apk/debug -name "*.apk" -print -quit)" >> $GITHUB_OUTPUT
-        echo "WIDGETS_APK=$(find ./Widgets/app/build/outputs/apk/debug -name "*.apk" -print -quit)" >> $GITHUB_OUTPUT
         echo "TACO_CLIENT_APK_NAME=$(basename $(find ./TacoClient/app/build/outputs/apk/debug -name "*.apk" -print -quit))" >> $GITHUB_OUTPUT
-        echo "WIDGETS_APK_NAME=$(basename $(find ./Widgets/app/build/outputs/apk/debug -name "*.apk" -print -quit))" >> $GITHUB_OUTPUT
 
-    - name: Upload Artifacts (on Push)
+    - name: Upload Artifact (on Push)
       if: github.event_name == 'push'
       uses: actions/upload-artifact@v4
       with:
-        name: debug-apks
-        path: |
-          ${{ steps.find_apks.outputs.TACO_CLIENT_APK }}
-          ${{ steps.find_apks.outputs.WIDGETS_APK }}
+        name: tacoclient-debug-apk
+        path: ${{ steps.find_apks.outputs.TACO_CLIENT_APK }}
 
     - name: Upload TacoClient APK to Release (on Release Create)
       if: github.event_name == 'release'
       uses: softprops/action-gh-release@v2
       with:
         files: ${{ steps.find_apks.outputs.TACO_CLIENT_APK }}
-        tag_name: ${{ github.ref }}
-        name: ${{ github.ref }}
-        body: See the [commit history](https://github.com/${{ github.repository }}/commits/${{ github.sha }}).
-        prerelease: contains(github.ref, '-rc')
-        generate_release_notes: false
-        draft: false
-        fail_on_error: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Upload Widgets APK to Release (on Release Create)
-      if: github.event_name == 'release'
-      uses: softprops/action-gh-release@v2
-      with:
-        files: ${{ steps.find_apks.outputs.WIDGETS_APK }}
         tag_name: ${{ github.ref }}
         name: ${{ github.ref }}
         body: See the [commit history](https://github.com/${{ github.repository }}/commits/${{ github.sha }}).
