@@ -182,7 +182,7 @@ open class MainActivity : NativeActivity(), View.OnKeyListener, FilePickerManage
 
     fun getKeyFromKeyCode(var1: Int, var2: Int, var3: Int): Int {
         throw RuntimeException("stub!")
-        }
+    }
 
     val keyboardHeight: Float
         get() = throw RuntimeException("stub!")

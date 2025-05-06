@@ -31,4 +31,5 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     compileOnly(project(":stubs"))
     compileOnly(files("libs/minecraft.jar"))
+    implementation(project(":Widgets:app\"))
 }

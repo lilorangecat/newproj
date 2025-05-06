@@ -1,3 +1,4 @@
+            com.mycompany.application.MainActivity.Start(this)
 package com.mojang.minecraftpe
 
 import android.annotation.SuppressLint
