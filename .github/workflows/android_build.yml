@@ -26,11 +26,20 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
 
+    - name: Sign APK
+      uses: r0adkll/sign-android-release@v1
+      with:
+        releaseDirectory: app/build/outputs/apk/release
+        signingKeyBase64: ${{ secrets.SIGNING_KEYSTORE_BASE64 }}
+        signingStorePassword: ${{ secrets.SIGNING_KEYSTORE_PASSWORD }}
+        signingKeyAlias: ${{ secrets.SIGNING_KEY_ALIAS }}
+        signingKeyPassword: ${{ secrets.SIGNING_KEY_PASSWORD }}
+
     - name: Upload APK artifact
       uses: actions/upload-artifact@v4
       with:
-        name: app-release-unsigned
-        path: app/build/outputs/apk/release/app-release-unsigned.apk
+        name: app-release-signed
+        path: app/build/outputs/apk/release/app-release-unsigned.apk # The action signs in place
 
     - name: Create Release
       id: create_release
