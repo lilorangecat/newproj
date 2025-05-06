@@ -14,7 +14,7 @@ class Launcher : MainActivity() {
         try {
             val addAssetPath: Method = assets.javaClass.getDeclaredMethod("addAssetPath", String::class.java)
             intent.getStringArrayListExtra("APKS")?.forEach { addAssetPath.invoke(assets, it) }
-            super.onCreate(bundle)
+            // super.onCreate(bundle) // Let native code handle window creation
         } catch (e: Exception) {
             throw RuntimeException(e)
         }

@@ -36,22 +36,6 @@ static ANativeWindow*                           g_Window;
 static char                                     g_LogTag[] = "ImGuiExample";
 static std::map<int32_t, std::queue<int32_t>>   g_KeyEventQueues; // FIXME: Remove dependency on map and queue once we use upcoming input queue.
 
-int32_t ImGui_ImplAndroid_HandleInputEvent(int x, int y, int type = 0)
-{
-    ImGuiIO& io = ImGui::GetIO();
-
-    switch (type)
-    {
-        case 0:
-            io.MouseDown[0] = true;
-            break;
-        case 1:
-            io.MouseDown[0] = false;
-            break;
-    }
-    io.MousePos = ImVec2(x, y);
-    return 0;
-}
 int32_t ImGui_ImplAndroid_HandleInputEvent(AInputEvent* input_event)
 {
     ImGuiIO& io = ImGui::GetIO();
