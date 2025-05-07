@@ -1,9 +1,9 @@
 package com.tacoclient.launcher
-import android.app.Activity
-import android.content.Intent
+// import android.app.Activity
+//import android.content.Intent
 import android.net.Uri
-import android.os.Build
-import android.os.Bundle
+//import android.os.Build
+//import android.os.Bundle
 import android.provider.Settings
 import android.view.WindowManager
 import android.widget.Toast
@@ -79,12 +79,12 @@ import androidx.core.view.WindowInsetsControllerCompat
 import com.tacoclient.launcher.ui.theme.TacoClientTheme
 import com.tacoclient.launcher.ImGuiManager
 class MainActivity : ComponentActivity() {
-    System.loadLibrary("WIDGETS_EXPERT")
     val mcInfo = mutableStateOf<PackageInfo?>(null)
 
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        System.loadLibrary("WIDGETS_EXPERT")
         val selected = mutableIntStateOf(0)
         enableEdgeToEdge()
         val window = this.window
