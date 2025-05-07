@@ -69,8 +69,13 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.tacoclient.launcher.ui.theme.TacoClientTheme
-
+import com.tacoclient.launcher.ImGuiManager
 class MainActivity : ComponentActivity() {
+    companion object {
+        init {
+            System.loadLibrary("WIDGETS_EXPERT")
+             Log.d("MainActivity", "Native library WIDGETS_EXPERT loaded.")
+        }
     val mcInfo = mutableStateOf<PackageInfo?>(null)
 
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -185,6 +190,7 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     private fun LaunchScreen() {
+        ImGuiManager.startImGuiOverlay(this)
         Box(Modifier.fillMaxSize().paint(painterResource(R.drawable.background), contentScale = ContentScale.FillBounds), Alignment.BottomCenter) {
             Column(Modifier.fillMaxWidth()) {
                 McInfoDisplay()
