@@ -1,5 +1,13 @@
 package com.tacoclient.launcher
-
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
+import android.os.Build
+import android.os.Bundle
+import android.provider.Settings
+import android.view.WindowManager
+import android.widget.Toast
+import android.util.Log // Keep Log import if needed elsewhere
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
@@ -71,11 +79,7 @@ import androidx.core.view.WindowInsetsControllerCompat
 import com.tacoclient.launcher.ui.theme.TacoClientTheme
 import com.tacoclient.launcher.ImGuiManager
 class MainActivity : ComponentActivity() {
-    companion object {
-        init {
-            System.loadLibrary("WIDGETS_EXPERT")
-             Log.d("MainActivity", "Native library WIDGETS_EXPERT loaded.")
-        }
+    System.loadLibrary("WIDGETS_EXPERT")
     val mcInfo = mutableStateOf<PackageInfo?>(null)
 
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
