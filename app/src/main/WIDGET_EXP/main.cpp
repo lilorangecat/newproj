@@ -93,17 +93,17 @@ ImColor ggColor = ImColor(225, 0, 0, 255);
 
 
 extern "C" {
-    JNIEXPORT void JNICALL Java_com_mycompany_application_GLES3JNIView_init(JNIEnv* env, jclass cls);
-    JNIEXPORT void JNICALL Java_com_mycompany_application_GLES3JNIView_resize(JNIEnv* env, jobject obj, jint width, jint height);
-    JNIEXPORT void JNICALL Java_com_mycompany_application_GLES3JNIView_step(JNIEnv* env, jobject obj);
-	JNIEXPORT void JNICALL Java_com_mycompany_application_GLES3JNIView_imgui_Shutdown(JNIEnv* env, jobject obj);
-	JNIEXPORT void JNICALL Java_com_mycompany_application_GLES3JNIView_MotionEventClick(JNIEnv* env, jobject obj,jboolean down,jfloat PosX,jfloat PosY);
-	JNIEXPORT jstring JNICALL Java_com_mycompany_application_GLES3JNIView_getWindowRect(JNIEnv *env, jobject thiz);
-	JNIEXPORT void JNICALL Java_com_mycompany_application_GLES3JNIView_real(JNIEnv* env, jobject obj, jint width, jint height);
+    JNIEXPORT void JNICALL Java_com_tacoclient_launcher_GLES3JNIView_init(JNIEnv* env, jclass cls);
+    JNIEXPORT void JNICALL Java_com_tacoclient_launcher_GLES3JNIView_resize(JNIEnv* env, jobject obj, jint width, jint height);
+    JNIEXPORT void JNICALL Java_com_tacoclient_launcher_GLES3JNIView_step(JNIEnv* env, jobject obj);
+	JNIEXPORT void JNICALL Java_com_tacoclient_launcher_GLES3JNIView_imgui_Shutdown(JNIEnv* env, jobject obj);
+	JNIEXPORT void JNICALL Java_com_tacoclient_launcher_GLES3JNIView_MotionEventClick(JNIEnv* env, jobject obj,jboolean down,jfloat PosX,jfloat PosY);
+	JNIEXPORT jstring JNICALL Java_com_tacoclient_launcher_GLES3JNIView_getWindowRect(JNIEnv *env, jobject thiz);
+	JNIEXPORT void JNICALL Java_com_tacoclient_launcher_GLES3JNIView_real(JNIEnv* env, jobject obj, jint width, jint height);
 };
 
 JNIEXPORT void JNICALL
-Java_com_mycompany_application_GLES3JNIView_init(JNIEnv* env, jclass cls) {
+Java_com_tacoclient_launcher_GLES3JNIView_init(JNIEnv* env, jclass cls) {
 
     //SetUpImGuiContext
     if(g_Initialized) return ;
@@ -140,7 +140,7 @@ Java_com_mycompany_application_GLES3JNIView_init(JNIEnv* env, jclass cls) {
 }
 
 JNIEXPORT void JNICALL
-Java_com_mycompany_application_GLES3JNIView_resize(JNIEnv* env, jobject obj, jint width, jint height) {
+Java_com_tacoclient_launcher_GLES3JNIView_resize(JNIEnv* env, jobject obj, jint width, jint height) {
 	screenWidth = (int) width;
     screenHeight = (int) height;
 	glViewport(0, 0, width, height);
@@ -194,7 +194,7 @@ void BeginDraw() {
 }
 
 JNIEXPORT void JNICALL
-Java_com_mycompany_application_GLES3JNIView_step(JNIEnv* env, jobject obj) {
+Java_com_tacoclient_launcher_GLES3JNIView_step(JNIEnv* env, jobject obj) {
     
 	ImGuiIO& io = ImGui::GetIO();
 	
@@ -214,7 +214,7 @@ Java_com_mycompany_application_GLES3JNIView_step(JNIEnv* env, jobject obj) {
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 }
 
-JNIEXPORT void JNICALL Java_com_mycompany_application_GLES3JNIView_imgui_Shutdown(JNIEnv* env, jobject obj){
+JNIEXPORT void JNICALL Java_com_tacoclient_launcher_GLES3JNIView_imgui_Shutdown(JNIEnv* env, jobject obj){
     if (!g_Initialized)
         return;
      // Cleanup
@@ -224,13 +224,13 @@ JNIEXPORT void JNICALL Java_com_mycompany_application_GLES3JNIView_imgui_Shutdow
     g_Initialized=false;
 }
 
-JNIEXPORT void JNICALL Java_com_mycompany_application_GLES3JNIView_MotionEventClick(JNIEnv* env, jobject obj,jboolean down,jfloat PosX,jfloat PosY){
+JNIEXPORT void JNICALL Java_com_tacoclient_launcher_GLES3JNIView_MotionEventClick(JNIEnv* env, jobject obj,jboolean down,jfloat PosX,jfloat PosY){
 	ImGuiIO & io = ImGui::GetIO();
 	io.MouseDown[0] = down;
 	io.MousePos = ImVec2(PosX,PosY);
 }
 
-JNIEXPORT jstring JNICALL Java_com_mycompany_application_GLES3JNIView_getWindowRect(JNIEnv *env, jobject thiz) {
+JNIEXPORT jstring JNICALL Java_com_tacoclient_launcher_GLES3JNIView_getWindowRect(JNIEnv *env, jobject thiz) {
     //get drawing window
     // TODO: accomplish getWindowSizePos()
     char result[256]="0|0|0|0";
