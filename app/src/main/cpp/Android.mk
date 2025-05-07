@@ -1,17 +1,11 @@
-
-LOCAL_PATH := $(call my-dir)
-
+TOP_PATH := $(call my-dir)/..
 include $(CLEAR_VARS)
+LOCAL_PATH := $(TOP_PATH)/mc
 LOCAL_MODULE := mc
 LOCAL_SRC_FILES := mc-init.cpp
 include $(BUILD_SHARED_LIBRARY)
-
-LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
-
-
-include $(CLEAR_VARS)
-
+LOCAL_PATH := $(TOP_PATH)/WIDGET_EXP
 LOCAL_MODULE    := WIDGETS_EXPERT
 
 LOCAL_CFLAGS := -w -s -Wno-error=format-security -fvisibility=hidden -fpermissive -fexceptions
@@ -29,7 +23,7 @@ LOCAL_C_INCLUDES += $(LOCAL_PATH)/ImGui/backends
 LOCAL_C_INCLUDES += $(LOCAL_PATH)
 
 LOCAL_SRC_FILES := main.cpp \
-	ImGui/imgui.cpp \
+        ImGui/imgui.cpp \
     ImGui/imgui_draw.cpp \
     ImGui/imgui_widgets.cpp \
     ImGui/imgui_tables.cpp \
@@ -37,5 +31,4 @@ LOCAL_SRC_FILES := main.cpp \
     ImGui/backends/imgui_impl_android.cpp \
 
 include $(BUILD_SHARED_LIBRARY)
-
 
