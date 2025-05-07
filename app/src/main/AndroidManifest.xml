@@ -41,7 +41,6 @@
             android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.TacoClient"
-            android:label="WIDGETS_EXPERT"
             android:screenOrientation="sensorLandscape"
 
             tools:ignore="DiscouragedApi">
