@@ -23,6 +23,4 @@ rootProject.name = "Taco Client"
 include(":app")
 include(":launcher")
 include(":stubs")
-
-include(":Widgets:app")
-project(":Widgets:app").projectDir = file("../Widgets/app")
+ 
