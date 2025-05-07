@@ -63,7 +63,7 @@ val prepareLauncherDex by tasks.registering {
         val outDir = assetsDir.asFile
         val sdkDir = android.sdkDirectory.absolutePath
         val btVersion = android.buildToolsVersion
-        val d8Path = "$sdkDir${File.separator}build-tools${File.separator}$btVersion${File.separator}d8.bat"
+        val d8Path = "$sdkDir${File.separator}build-tools${File.separator}$btVersion${File.separator}d8"
         val execOperations = project.serviceOf<ExecOperations>()
 
         execOperations.exec {
