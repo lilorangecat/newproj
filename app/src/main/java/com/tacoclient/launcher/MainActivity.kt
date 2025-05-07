@@ -84,7 +84,6 @@ class MainActivity : ComponentActivity() {
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        System.loadLibrary("WIDGETS_EXPERT")
         val selected = mutableIntStateOf(0)
         enableEdgeToEdge()
         val window = this.window

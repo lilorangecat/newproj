@@ -6,7 +6,9 @@ import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.khronos.egl.EGLConfig;
 
 public class GLES3JNIView extends GLSurfaceView implements GLSurfaceView.Renderer {
-	
+	static{
+        System.loadLibrary("WIDGETS_EXPERT");
+    }
 	public static byte fontData[];
     public GLES3JNIView(Context context) {
         super(context);
