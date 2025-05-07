@@ -7,12 +7,12 @@ on:
       branch:
         description: 'Branch to build from'
         required: true
-        default: 'main' # Or your default branch like 'develop'
+        default: 'master' # Or your default branch like 'develop'
 
   # Triggers the workflow on push events to the specified branches
   push:
     branches:
-      - main  # Or your default branch
+      - master  # Or your default branch
       # - develop # Add other branches if needed
 
 jobs:
