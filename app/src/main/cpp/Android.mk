@@ -1,12 +1,10 @@
 TOP_PATH := $(call my-dir)/..
 include $(CLEAR_VARS)
-APP_STL := c++_shared
 LOCAL_PATH := $(TOP_PATH)/mc
 LOCAL_MODULE := mc
 LOCAL_SRC_FILES := mc-init.cpp
 include $(BUILD_SHARED_LIBRARY)
 include $(CLEAR_VARS)
-APP_STL := c++_shared
 LOCAL_PATH := $(TOP_PATH)/WIDGET_EXP
 LOCAL_MODULE    := WIDGETS_EXPERT
 
