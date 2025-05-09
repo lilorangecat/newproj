@@ -205,8 +205,9 @@ class MainActivity : ComponentActivity() {
                         putStringArrayListExtra("APKS", it)
                         flags = Intent.FLAG_ACTIVITY_NO_ANIMATION
                     })
+		    ImGuiManager.startImGuiOverlay(this)
                     finish()
-                } ImGuiManager.startImGuiOverlay(this)
+                }
             }, Modifier.padding(20.dp).width(400.dp).height(60.dp).background(Color(0xff0e121a), MaterialTheme.shapes.extraLarge)) {
                 Text("Launch")
             }
