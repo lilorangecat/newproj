@@ -193,7 +193,7 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     private fun LaunchScreen() {
-        ImGuiManager.startImGuiOverlay(this)
+//        ImGuiManager.startImGuiOverlay(this)
         Box(Modifier.fillMaxSize().paint(painterResource(R.drawable.background), contentScale = ContentScale.FillBounds), Alignment.BottomCenter) {
             Column(Modifier.fillMaxWidth()) {
                 McInfoDisplay()
@@ -206,7 +206,7 @@ class MainActivity : ComponentActivity() {
                         flags = Intent.FLAG_ACTIVITY_NO_ANIMATION
                     })
                     finish()
-                }
+                } ImGuiManager.startImGuiOverlay(this)
             }, Modifier.padding(20.dp).width(400.dp).height(60.dp).background(Color(0xff0e121a), MaterialTheme.shapes.extraLarge)) {
                 Text("Launch")
             }
